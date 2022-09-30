@@ -1,31 +1,6 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const Pizza = require("./models/Pizza.model");
 
-// mongoose.model('ModelName', schema);
-// const Pizza = mongoose.model('Pizza', { title: String, price: Number });
-
-const pizzaSchema = new Schema({
-    title: {
-        type: String,
-        required: true,
-        unique: true
-    }, 
-    price: {
-        type: Number,
-        required: true
-    },
-    isVeggie: {
-        type: Boolean,
-        default: false
-    },
-    ingredients: [],
-    dough: {
-        type: String,
-        enum: ["thin", "thick", "stuffed crust"]
-    }
-});
-
-const Pizza = mongoose.model('Pizza', pizzaSchema);
 
 mongoose
     .connect('mongodb://127.0.0.1:27017/ironic-pizzas-db')
@@ -33,10 +8,10 @@ mongoose
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
 
         const detailsOne = {
-            title: "pizza margherita", 
+            title: "pizza margaritta", 
             price: 8,
             isVeggie: true,
-            dough: 'thin'
+            dough: "thin"
         };
 
 
@@ -71,6 +46,3 @@ mongoose
         console.log(responseFromDB)
     })
     .catch(err => console.error('Error interacting with our DB', err));
-
-
-
