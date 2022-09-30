@@ -47,6 +47,12 @@ app.get("/pizzas/carbonara", (req, res, next) => {
 
 
 app.get("/pizzas/funghi", (req, res, next) => {
+    //db query
+  //  Pizza.find()
+   //     .then( (data) => {
+   //         res.render('pizza-page')
+   //     })
+    
     const data = {
         title: 'Pizza Funghi',
         imgFile: "pizza-funghi.jpg",
